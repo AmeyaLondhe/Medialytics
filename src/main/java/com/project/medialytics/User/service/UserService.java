@@ -15,10 +15,11 @@ public class UserService {
     private UserRepo userRepo;
 
     public void signUp(@NotNull User user) {
+        user.setUserName(user.getUsername());
         user.setUserEmail(user.getUserEmail());
         user.setPassword(user.getPassword());
         String token = UUID.randomUUID().toString();
-        user.setVerificationToken(token);
+//        user.setVerificationToken(token);
         userRepo.save(user);
     }
 }
